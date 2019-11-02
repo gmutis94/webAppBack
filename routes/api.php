@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//esta ruta retorna un hola mundo en get 
+Route::get('/test/{$id}', function($id){
+return 'El parametro es: '.$id;
+});
+
+//esta ruta retornaa un hola mundo en post
+Route::post('/test',function(){
+    return 'hola mundo';
+})
