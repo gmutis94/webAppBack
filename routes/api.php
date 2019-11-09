@@ -24,4 +24,4 @@ return 'El parametro es: '.$id;
 //esta ruta retornaa un hola mundo en post
 Route::post('/test',function(){
     return 'hola mundo';
-})
+});
