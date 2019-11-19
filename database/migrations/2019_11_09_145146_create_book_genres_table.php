@@ -14,7 +14,11 @@ class CreateBookGenresTable extends Migration
     public function up()
     {
         Schema::create('book_genres', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigInteger('book_id');
+            $table->bigInteger('literary_genre_id');
+            $table->primary(['book_id','literary_genre_id']);
+            $table->foreign('book_id')->references('id')->on('books');
+            $table->foreign('literary_genre_id')->references('id')->on('literary_genres');
             $table->timestamps();
         });
     }

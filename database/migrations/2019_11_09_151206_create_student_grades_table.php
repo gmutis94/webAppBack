@@ -14,7 +14,12 @@ class CreateStudentGradesTable extends Migration
     public function up()
     {
         Schema::create('student_grades', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigInteger('student_id');
+            $table->bigInteger('grade_id');
+            $table->string('year');
+            $table->primary(['student_id','grade_id','year']);
+            $table->foreign('student_id')->references('id')->on('students');
+            $table->foreign('grade_id')->references('id')->on('grades');
             $table->timestamps();
         });
     }

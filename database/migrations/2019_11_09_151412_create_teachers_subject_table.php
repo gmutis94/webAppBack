@@ -15,7 +15,11 @@ class CreateTeachersSubjectTable extends Migration
     {
         Schema::create('teachers_subject', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('teacher_id');
+            $table->bigInteger('subjects_id');
+            $table->string('year');
             $table->timestamps();
+            $table->foreign('teacher_id')->references('id')->on('teachers');
         });
     }
 

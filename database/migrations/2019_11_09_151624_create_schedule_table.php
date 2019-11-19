@@ -15,7 +15,24 @@ class CreateScheduleTable extends Migration
     {
         Schema::create('schedule', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('classroom_id');
+            $table->bigInteger('grade_id');
+            $table->bigInteger('teacher_subject_id');
+            $table->enum('day',[
+                                'monday',
+                                'tuesday',
+                                'wednesday',
+                                'thursday',
+                                'friday',
+                                'saturday',
+                                'sunday'
+                            ]);
+            $table->time('start_time');
+            $table->time('end_time');
             $table->timestamps();
+            $table->foreign('classroom_id')->references('id')->on('classrooms');
+            $table->foreign('grade_id')->references('id')->on('grades');
+            $table->foreign('teacher_subject_id')->references('id')->on('teachers_subject');
         });
     }
 

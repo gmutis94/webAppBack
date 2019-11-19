@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGradeCartegoriesTable extends Migration
+class CreateLiteraryGenresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,21 @@ class CreateGradeCartegoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('grade_cartegories', function (Blueprint $table) {
+        Schema::create('literary_genres', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('descrition')->nullable();
+            $table->string('name');
+            $table->text('detail');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migratio2019_11_09_144637_create_literary_generes_tableSSSns.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('grade_cartegories');
+        Schema::dropIfExists('literary_genres');
     }
 }

@@ -15,6 +15,10 @@ class CreateEditorialsTable extends Migration
     {
         Schema::create('editorials', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('email');
             $table->timestamps();
         });
     }

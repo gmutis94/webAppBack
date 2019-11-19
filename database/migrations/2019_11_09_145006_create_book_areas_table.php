@@ -15,6 +15,12 @@ class CreateBookAreasTable extends Migration
     {
         Schema::create('book_areas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->bigInteger('book_id')->unique();
+            $table->bigInteger('area_id');
+            $table->foreign('book_id')->references('id')->on('books');
+            $table->foreign('area_id')
+                ->references('id')->on('areas');
             $table->timestamps();
         });
     }
